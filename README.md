@@ -1,6 +1,6 @@
 # ai-marketing-claude
 
-> **AI marketing with Claude — campaign strategy, copy generation, performance analysis**
+> **AI marketing with Claude — campaign strategy, copy, and performance analysis**
 
 ![Status](https://img.shields.io/badge/status-active-brightgreen?style=flat)
 ![License](https://img.shields.io/badge/license-MIT-blue?style=flat)
@@ -14,14 +14,14 @@
 
 | Concept | Description |
 |---|---|
-| **Marketing** | Core marketing capability for ai-marketing-claude workflows |
-| **Claude** | Core claude capability for ai-marketing-claude workflows |
-| **Campaign** | Core campaign capability for ai-marketing-claude workflows |
-| **Copy** | Core copy capability for ai-marketing-claude workflows |
-| **Ads** | Core ads capability for ai-marketing-claude workflows |
-| **Strategy** | Core strategy capability for ai-marketing-claude workflows |
-| **Performance** | Core performance capability for ai-marketing-claude workflows |
-| **Ai** | Core ai capability for ai-marketing-claude workflows |
+| **Campaign Strategy** | Full funnel planning from awareness to conversion |
+| **Ad Copy** | Platform-specific copy for Meta, Google, LinkedIn |
+| **Email Sequence** | Welcome, nurture, and conversion email chains |
+| **SEO Content** | Keyword-optimized blog and landing pages |
+| **Analytics** | Performance report interpretation and insights |
+| **A/B Testing** | Hypothesis and variant generation |
+| **Persona** | ICP development and messaging matrix |
+| **Calendar** | Content calendar and scheduling logic |
 
 ---
 
@@ -46,19 +46,19 @@ claude 'what can ai-marketing-claude do?'
 ## ☠️ STARTUPS / BUSINESSES
 
 - **Agencies**: automate marketing workflows for clients at scale
-- **Founders**: ship claude features 10x faster with Claude
-- **Freelancers**: deliver campaign work with AI-assisted precision
+- **Founders**: ship claude features 10x faster
+- **Freelancers**: deliver campaign work with AI precision
 
 ---
 
 ## Features
 
-- Marketing automation and orchestration
-- Claude automation and orchestration
-- Campaign automation and orchestration
-- Copy automation and orchestration
-- Ads automation and orchestration
-- Strategy automation and orchestration
+- Marketing automation
+- Claude automation
+- Campaign automation
+- Copy automation
+- Ads automation
+- Strategy automation
 
 ---
 
@@ -74,9 +74,14 @@ cd ai-marketing-claude
 ## Usage
 
 ```bash
-# In Claude Code
-/ai-marketing-claude
-claude 'marketing task here'
+# Activate skill in Claude Code
+claude --skill ai-marketing-claude "your task here"
+
+# Quick workflow
+claude "marketing automation task"
+
+# Get help
+claude "what can ai-marketing-claude do?"
 ```
 
 ---
@@ -85,11 +90,11 @@ claude 'marketing task here'
 
 | Variable | Description | Default |
 |---|---|---|
-| `API_KEY` | Primary API key for service access | Required |
+| `API_KEY` | Primary API key | Required |
 | `MODEL` | AI model to use | claude-3-5-sonnet |
-| `DEBUG` | Enable verbose debug output | false |
-| `MAX_TOKENS` | Max token budget per request | 8192 |
-| `TIMEOUT` | Request timeout in seconds | 30 |
+| `DEBUG` | Enable verbose debug | false |
+| `MAX_TOKENS` | Max token budget | 8192 |
+| `TIMEOUT` | Request timeout (sec) | 30 |
 | `LOG_LEVEL` | Logging verbosity | info |
 
 ---
@@ -98,40 +103,36 @@ claude 'marketing task here'
 
 ```
 ai-marketing-claude/
-├── README.md           # This file
+├── README.md           # Documentation
 ├── SKILL.md            # Claude Code skill definition
-├── scripts/            # Automation and utility scripts
-├── templates/          # Output and prompt templates
-├── examples/           # Usage examples and demos
-├── tests/              # Unit and integration tests
+├── scripts/            # Automation scripts
+├── templates/          # Output templates
+├── examples/           # Usage examples
 └── docs/               # Extended documentation
-    ├── setup.md        # Setup guide
-    ├── api.md          # API reference
-    └── faq.md          # Frequently asked questions
 ```
 
 ---
 
 ## Examples
 
-### Basic Usage
+### Basic
 
 ```bash
-# Activate in Claude Code
-claude --skill ai-marketing-claude "your task here"
+# Simple task
+claude --skill ai-marketing-claude "marketing task"
 
-# With options
-claude --skill ai-marketing-claude --verbose "detailed task"
+# Verbose
+claude --skill ai-marketing-claude --verbose "detailed claude task"
 ```
 
-### Advanced Workflow
+### Advanced Pipeline
 
 ```bash
-# Chain with other skills
+# Chain skills
 claude --skill ai-marketing-claude "step 1" | claude --skill summarize
 
-# Batch processing
-for item in list; do
+# Batch run
+for item in $(cat list.txt); do
   claude --skill ai-marketing-claude "process $item"
 done
 ```
@@ -142,18 +143,18 @@ done
 
 | Issue | Cause | Fix |
 |---|---|---|
-| Auth fails | Invalid/expired API key | Re-export key in shell profile |
-| Timeout error | Network latency or large payload | Increase TIMEOUT value |
-| Empty output | Prompt too vague | Add more context to request |
-| Rate limit hit | Too many requests | Add delay between calls |
-| Model error | Unsupported model version | Update MODEL variable |
+| Auth fails | Invalid API key | Re-export key in shell profile |
+| Timeout | Network or large payload | Increase TIMEOUT value |
+| Empty output | Prompt too vague | Add more context |
+| Rate limit | Too many requests | Add delay between calls |
+| Model error | Unsupported version | Update MODEL variable |
 | Import error | Missing dependency | Run pip install -r requirements.txt |
 
 ---
 
 ## Comparison
 
-| Feature | This Skill | Alternative A | Alternative B |
+| Feature | This Skill | Alt A | Alt B |
 |---|---|---|---|
 | Claude Code native | ✅ | ❌ | ✅ |
 | Auto-activation | ✅ | ✅ | ❌ |
@@ -163,23 +164,21 @@ done
 
 ---
 
-## Contributing
-
-1. Fork this repo
-2. Create feature branch: `git checkout -b feat/your-feature`
-3. Commit changes: `git commit -m 'feat: add feature'`
-4. Push: `git push origin feat/your-feature`
-5. Open PR
-
----
-
 ## Changelog
 
 | Version | Changes |
 |---|---|
-| v2.0 | Major refactor, Claude 4 support |
-| v1.5 | Added auto-activation keywords |
+| v2.0 | Claude 4 support, auto-activation |
+| v1.5 | Added keyword triggers |
 | v1.0 | Initial release |
+
+---
+
+## Contributing
+
+1. Fork → feature branch → commit → PR
+2. Follow conventional commits: `feat:`, `fix:`, `docs:`
+3. Add tests for new features
 
 ---
 
@@ -191,7 +190,7 @@ done
 
 ## 📜 License
 
-MIT — free to use, modify, and distribute.
+MIT — free to use, modify, distribute.
 
 ---
 
