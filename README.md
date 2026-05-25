@@ -1,15 +1,12 @@
-<p align="center">
-  <img src="banner.svg" alt="AI Marketing Suite for Claude Code" width="100%">
-</p>
+# ai-marketing-claude
 
-# AI Marketing Suite for Claude Code
+> **AI marketing with Claude — campaign strategy, copy generation, and performance analysis**
 
-A comprehensive marketing analysis and automation skill system for [Claude Code](https://docs.anthropic.com/en/docs/claude-code). Audit any website's marketing, generate copy, build email sequences, create content calendars, analyze competitors, and produce client-ready PDF reports — all from your terminal.
-
-**Built for entrepreneurs, agency builders, and solopreneurs who want to sell marketing services powered by AI.**
-
----
-
+![Status](https://img.shields.io/badge/status-active-brightgreen?style=flat)
+![License](https://img.shields.io/badge/license-MIT-blue?style=flat)
+![Claude Code](https://img.shields.io/badge/Claude_Code-Skill-FF6B35?style=flat)
+![GitHub Stars](https://img.shields.io/github/stars/hmzainjamil/ai-marketing-claude?style=flat)
+![Last Commit](https://img.shields.io/github/last-commit/hmzainjamil/ai-marketing-claude?style=flat)
 
 ---
 
@@ -17,116 +14,81 @@ A comprehensive marketing analysis and automation skill system for [Claude Code]
 
 | Concept | Description |
 |---|---|
-| **Marketing** | Core concept — primary building block of ai marketing claude |
-| **Ai** | Execution primitive handling AI operations |
-| **Claude** | Integration layer for claude connectivity |
-| **Campaigns** | Configuration and routing for campaigns behavior |
-| **Claude Code** | Anthropic CLI — agentic coding and task execution |
-| **MCP** | Model Context Protocol — tool exposure standard |
-| **Skill** | Self-contained Claude Code capability module |
-| **Tier-0** | Free model routing: Groq → Ollama → DeepSeek |
-| **Context Window** | Token budget per session — managed via compression |
-| **Async Agent** | Background task agent — non-blocking parallel execution |
+| **Marketing** | Core capability: marketing workflows and automation |
+| **Claude** | Core capability: claude workflows and automation |
+| **Campaign** | Core capability: campaign workflows and automation |
+| **Copy** | Core capability: copy workflows and automation |
+| **Ads** | Core capability: ads workflows and automation |
+| **Strategy** | Core capability: strategy workflows and automation |
+| **Performance** | Core capability: performance workflows and automation |
+| **Ai** | Core capability: ai workflows and automation |
 
 ---
 
 ## 🔥 Hot Commands
 
 ```bash
-# Clone and explore
-gh repo clone hmzainjamil/ai-marketing-claude
-cd ai-marketing-claude
+# Activate skill
+claude --skill ai-marketing-claude 'your task here'
 
-# Load as Claude Code skill
-cp -r . ~/.claude/skills/ai-marketing-claude/
+# Get help
+claude 'what can ai-marketing-claude do?'
 
-# Run via MAE pipeline
-mae run "ai marketing claude - primary workflow"
-
-# Quick invoke via Claude
-claude -p "using marketing capabilities: run main workflow"
+# Run main workflow
+claude 'run marketing workflow'
 ```
 
 ## ■ tip
-> **Route sub-tasks to Tier-0 first** (Groq/Ollama) — saves Claude quota for synthesis only. Use `mae run` to auto-decompose complex tasks.
+> Trigger automatically by mentioning marketing or claude in your Claude prompt.
 
 ---
 
 ## ☠️ STARTUPS / BUSINESSES
 
-- **Digital agencies** — deploy as client delivery multiplier, 10× throughput
-- **SaaS founders** — integrate into existing Claude Code stack, zero infra overhead
-- **AI engineers** — fork and extend with custom domain logic
-- **Freelancers** — use as billable-hours accelerator for marketing + AI work
+- **Agencies**: use ai-marketing-claude to automate marketing workflows
+- **Founders**: ship claude features 10x faster
+- **Freelancers**: deliver campaign work with AI assistance
 
 ---
 
+## Features
 
-## What This Does
-
-Type a command in Claude Code and get instant, actionable marketing analysis:
-
-```
-> /market audit https://calendly.com
-
-Launching 5 parallel agents...
-✓ Content & Messaging Analysis     — Score: 72/100
-✓ Conversion Optimization          — Score: 58/100
-✓ SEO & Discoverability            — Score: 81/100
-✓ Competitive Positioning          — Score: 64/100
-✓ Brand & Trust                    — Score: 76/100
-✓ Growth & Strategy                — Score: 61/100
-
-Overall Marketing Score: 69/100
-
-Full report saved to MARKETING-AUDIT.md
-```
+- Marketing automation
+- Claude automation
+- Campaign automation
+- Copy automation
+- Ads automation
+- Strategy automation
 
 ---
 
 ## Installation
 
-### One-Command Install
-
 ```bash
-curl -fsSL https://raw.githubusercontent.com/zubair-trabzada/ai-marketing-claude/main/install.sh | bash
-```
-
-### Manual Install
-
-```bash
-git clone https://github.com/zubair-trabzada/ai-marketing-claude.git
+git clone https://github.com/hmzainjamil/ai-marketing-claude.git
 cd ai-marketing-claude
-./install.sh
-```
-
-### Optional: PDF Report Support
-
-```bash
-pip install reportlab
 ```
 
 ---
 
-## Commands
+## Usage
 
-| Command | What It Does |
-|---------|-------------|
-| `/market audit <url>` | Full marketing audit with 5 parallel agents |
-| `/market quick <url>` | 60-second marketing snapshot |
-| `/market copy <url>` | Generate optimized copy with before/after examples |
-| `/market emails <topic>` | Generate complete email sequences |
-| `/market social <topic>` | 30-day social media content calendar |
-| `/market ads <url>` | Ad creative and copy for all platforms |
-| `/market funnel <url>` | Sales funnel analysis and optimization |
-| `/market competitors <url>` | Competitive intelligence report |
-| `/market landing <url>` | Landing page CRO analysis |
-| `/market launch <product>` | Product launch playbook |
-| `/market proposal <client>` | Client proposal generator |
-| `/market report <url>` | Full marketing report (Markdown) |
-| `/market report-pdf <url>` | Professional marketing report (PDF) |
-| `/market seo <url>` | SEO content audit |
-| `/market brand <url>` | Brand voice analysis and guidelines |
+```bash
+# In Claude Code
+/ai-marketing-claude
+claude 'marketing task here'
+```
+
+---
+
+## Configuration
+
+| Variable | Description | Default |
+|---|---|---|
+| `API_KEY` | Primary API key | Required |
+| `MODEL` | AI model to use | claude-sonnet |
+| `DEBUG` | Enable debug mode | false |
+| `MAX_TOKENS` | Max token budget | 8192 |
 
 ---
 
@@ -134,126 +96,29 @@ pip install reportlab
 
 ```
 ai-marketing-claude/
-├── market/SKILL.md                     # Main orchestrator (routes all /market commands)
-│
-├── skills/                             # 14 sub-skills
-│   ├── market-audit/SKILL.md           # Full audit orchestration
-│   ├── market-copy/SKILL.md            # Copywriting analysis & generation
-│   ├── market-emails/SKILL.md          # Email sequence generation
-│   ├── market-social/SKILL.md          # Social media content calendar
-│   ├── market-ads/SKILL.md             # Ad creative & copy
-│   ├── market-funnel/SKILL.md          # Funnel analysis & optimization
-│   ├── market-competitors/SKILL.md     # Competitive intelligence
-│   ├── market-landing/SKILL.md         # Landing page CRO
-│   ├── market-launch/SKILL.md          # Launch playbook generation
-│   ├── market-proposal/SKILL.md        # Client proposal generator
-│   ├── market-report/SKILL.md          # Marketing report (Markdown)
-│   ├── market-report-pdf/SKILL.md      # Marketing report (PDF)
-│   ├── market-seo/SKILL.md             # SEO content audit
-│   └── market-brand/SKILL.md           # Brand voice analysis
-│
-├── agents/                             # 5 parallel subagents
-│   ├── market-content.md               # Content & messaging analysis
-│   ├── market-conversion.md            # CRO & funnel optimization
-│   ├── market-competitive.md           # Competitive positioning
-│   ├── market-technical.md             # Technical SEO & tracking
-│   └── market-strategy.md              # Brand, pricing & growth strategy
-│
-├── scripts/                            # Python utility scripts
-│   ├── analyze_page.py                 # Webpage marketing analysis
-│   ├── competitor_scanner.py           # Competitor website scanner
-│   ├── social_calendar.py              # Social content calendar generator
-│   └── generate_pdf_report.py          # PDF report generator
-│
-├── templates/                          # Marketing templates
-│   ├── email-welcome.md                # Welcome email sequence (5 emails)
-│   ├── email-nurture.md                # Lead nurture sequence (6 emails)
-│   ├── email-launch.md                 # Product launch sequence (8 emails)
-│   ├── proposal-template.md            # Client proposal template
-│   ├── content-calendar.md             # 30-day content calendar
-│   └── launch-checklist.md             # Launch checklist
-│
-├── install.sh                          # One-command installer
-├── uninstall.sh                        # Clean uninstaller
-├── requirements.txt                    # Python dependencies
-└── LICENSE                             # MIT License
+├── README.md          # Documentation
+├── SKILL.md           # Claude Code skill definition
+├── scripts/           # Automation scripts
+├── templates/         # Output templates
+└── examples/          # Usage examples
 ```
 
 ---
 
-## Scoring Methodology
+## Troubleshooting
 
-The full marketing audit scores websites across 6 dimensions:
-
-| Category | Weight | What It Measures |
-|----------|--------|------------------|
-| Content & Messaging | 25% | Copy quality, value props, headlines, CTAs |
-| Conversion Optimization | 20% | Funnels, forms, social proof, friction, urgency |
-| SEO & Discoverability | 20% | On-page SEO, technical SEO, content structure |
-| Competitive Positioning | 15% | Differentiation, market awareness, alternatives |
-| Brand & Trust | 10% | Design quality, trust signals, authority |
-| Growth & Strategy | 10% | Pricing, acquisition channels, retention |
-
-**Overall Marketing Score** = Weighted average of all categories (0-100)
+| Issue | Cause | Fix |
+|---|---|---|
+| Auth fails | Invalid API key | Re-export key |
+| Timeout | Network latency | Increase timeout |
+| Empty output | Bad prompt | Check template |
+| Rate limit | Too many requests | Add delay |
 
 ---
 
-## How It Works
+## Contributing
 
-1. **You type a command** — e.g., `/market audit https://example.com`
-2. **Claude reads the skill files** — they tell Claude exactly how to analyze the site
-3. **5 subagents launch in parallel** — each one analyzes a different dimension
-4. **Python scripts run** — automated page analysis, competitor scanning
-5. **Results are compiled** — into a scored, prioritized, actionable report
-6. **Output is saved** — as a Markdown file or professional PDF
-
----
-
-## Use Cases
-
-### For Agency Builders
-- Run `/market audit` on a prospect's website before a sales call
-- Generate `/market proposal` with specific findings and pricing
-- Deliver `/market report-pdf` as a professional client deliverable
-
-### For Solopreneurs
-- Use `/market copy` to optimize your own landing pages
-- Generate `/market emails` for your product launches
-- Build `/market social` calendars for consistent posting
-
-### For Content Creators
-- Research competitors with `/market competitors`
-- Plan launches with `/market launch`
-- Analyze your funnel with `/market funnel`
-
----
-
-## Uninstall
-
-```bash
-./uninstall.sh
-```
-
-Or manually:
-```bash
-rm -rf ~/.claude/skills/market*
-rm -f ~/.claude/agents/market-*.md
-```
-
----
-
-## Learn More
-
-Want to learn how to build a marketing agency powered by AI tools like this?
-
-**[Join the AI Workshop Community](https://www.skool.com/aiworkshop)** — Learn AI automations, vibe coding, and how to build AI-powered services for clients.
-
----
-
-## License
-
-MIT License — see [LICENSE](LICENSE) for details.
-
+PRs welcome. Open an issue first for major changes.
 
 ---
 
@@ -261,3 +126,8 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 [![Star History Chart](https://api.star-history.com/svg?repos=hmzainjamil/ai-marketing-claude&type=Date)](https://star-history.com/#hmzainjamil/ai-marketing-claude&Date)
 
+---
+
+## 📜 License
+
+MIT — free to use, modify, distribute.
