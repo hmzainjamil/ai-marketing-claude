@@ -10,6 +10,58 @@ A comprehensive marketing analysis and automation skill system for [Claude Code]
 
 ---
 
+
+---
+
+## CONCEPTS
+
+| Concept | Description |
+|---|---|
+| **Marketing** | Core concept — primary building block of ai marketing claude |
+| **Ai** | Execution primitive handling AI operations |
+| **Claude** | Integration layer for claude connectivity |
+| **Campaigns** | Configuration and routing for campaigns behavior |
+| **Claude Code** | Anthropic CLI — agentic coding and task execution |
+| **MCP** | Model Context Protocol — tool exposure standard |
+| **Skill** | Self-contained Claude Code capability module |
+| **Tier-0** | Free model routing: Groq → Ollama → DeepSeek |
+| **Context Window** | Token budget per session — managed via compression |
+| **Async Agent** | Background task agent — non-blocking parallel execution |
+
+---
+
+## 🔥 Hot Commands
+
+```bash
+# Clone and explore
+gh repo clone hmzainjamil/ai-marketing-claude
+cd ai-marketing-claude
+
+# Load as Claude Code skill
+cp -r . ~/.claude/skills/ai-marketing-claude/
+
+# Run via MAE pipeline
+mae run "ai marketing claude - primary workflow"
+
+# Quick invoke via Claude
+claude -p "using marketing capabilities: run main workflow"
+```
+
+## ■ tip
+> **Route sub-tasks to Tier-0 first** (Groq/Ollama) — saves Claude quota for synthesis only. Use `mae run` to auto-decompose complex tasks.
+
+---
+
+## ☠️ STARTUPS / BUSINESSES
+
+- **Digital agencies** — deploy as client delivery multiplier, 10× throughput
+- **SaaS founders** — integrate into existing Claude Code stack, zero infra overhead
+- **AI engineers** — fork and extend with custom domain logic
+- **Freelancers** — use as billable-hours accelerator for marketing + AI work
+
+---
+
+
 ## What This Does
 
 Type a command in Claude Code and get instant, actionable marketing analysis:
@@ -201,3 +253,11 @@ Want to learn how to build a marketing agency powered by AI tools like this?
 ## License
 
 MIT License — see [LICENSE](LICENSE) for details.
+
+
+---
+
+## ⭐ Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=hmzainjamil/ai-marketing-claude&type=Date)](https://star-history.com/#hmzainjamil/ai-marketing-claude&Date)
+
