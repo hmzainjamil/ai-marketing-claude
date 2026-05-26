@@ -1,408 +1,203 @@
-# ai-marketing-claude
+<p align="center">
+  <img src="banner.svg" alt="AI Marketing Suite for Claude Code" width="100%">
+</p>
 
-![badge](https://img.shields.io/badge/Claude-Code-blue?style=flat) ![badge](https://img.shields.io/badge/AI-Powered-orange?style=flat) ![badge](https://img.shields.io/badge/Open-Source-green?style=flat)
+# AI Marketing Suite for Claude Code
 
-> AI marketing automation with Claude Code
+A comprehensive marketing analysis and automation skill system for [Claude Code](https://docs.anthropic.com/en/docs/claude-code). Audit any website's marketing, generate copy, build email sequences, create content calendars, analyze competitors, and produce client-ready PDF reports — all from your terminal.
 
----
-
-## CONCEPTS
-
-| Concept | Description | Source |
-|---------|-------------|--------|
-| Core — AI foundation for marketing workflows | Core foundation — the primary abstraction this repo builds on | [docs](#) |
-| Execution — task decomposition and marketing routing | Execution layer — how tasks get decomposed and routed | [docs](#) |
-| Integration — Claude Code + automation connectivity | Integration layer — connecting to external tools and APIs | [docs](#) |
-| Orchestration — multi-agent coordination and handoffs | Orchestration — multi-agent coordination and handoffs | [docs](#) |
-| Memory — persistent context across sessions | Memory — persistent context across sessions | [docs](#) |
-| Routing — intent-based skill activation | Routing — intent-based skill activation and deactivation | [docs](#) |
-| Output — structured artifacts and deliverables | Output — structured artifacts, reports, and deliverables | [docs](#) |
-| Observability — logging, tracing, audit trails | Observability — logging, tracing, and audit trails | [docs](#) |
+**Built for entrepreneurs, agency builders, and solopreneurs who want to sell marketing services powered by AI.**
 
 ---
 
-## 🔥 Hot Commands
+## What This Does
 
-```bash
-# Quick start
-python3 main.py --task "marketing task here"
+Type a command in Claude Code and get instant, actionable marketing analysis:
 
-# Power user shortcut
-python3 main.py --marketing --fast
-
-# Batch execution
-python3 main.py --batch tasks.txt --parallel 4
-
-# Status check
-python3 main.py --status
 ```
+> /market audit https://calendly.com
 
-■ tip: Run with `--model qwen2.5:7b` for zero-cost local execution
+Launching 5 parallel agents...
+✓ Content & Messaging Analysis     — Score: 72/100
+✓ Conversion Optimization          — Score: 58/100
+✓ SEO & Discoverability            — Score: 81/100
+✓ Competitive Positioning          — Score: 64/100
+✓ Brand & Trust                    — Score: 76/100
+✓ Growth & Strategy                — Score: 61/100
 
----
+Overall Marketing Score: 69/100
 
-## ☠️ STARTUPS / BUSINESSES
-
-Use ai-marketing-claude to automate ai marketing automation with claude code. Perfect for agencies, freelancers, and AI-first teams running marketing workflows at scale.
-
----
-
-## Features
-
-- ✅ AI marketing automation with Claude Code
-- ✅ Claude Code native integration
-- ✅ Ollama / Groq / Gemini model support
-- ✅ Batch processing with parallelism
-- ✅ Intent-based auto-activation
-- ✅ Zero-cost local execution path
+Full report saved to MARKETING-AUDIT.md
+```
 
 ---
 
 ## Installation
 
+### One-Command Install
+
 ```bash
-# Clone the repository
-git clone https://github.com/hmzainjamil/ai-marketing-claude.git
+curl -fsSL https://raw.githubusercontent.com/zubair-trabzada/ai-marketing-claude/main/install.sh | bash
+```
+
+### Manual Install
+
+```bash
+git clone https://github.com/zubair-trabzada/ai-marketing-claude.git
 cd ai-marketing-claude
+./install.sh
+```
 
-# Install dependencies
-pip install -r requirements.txt  # or npm install
+### Optional: PDF Report Support
 
-# Configure environment
-cp .env.example .env
-# Edit .env with your API keys
-
-# Verify installation
-python3 main.py --verify
+```bash
+pip install reportlab
 ```
 
 ---
 
-## Quick Start
+## Commands
 
-```bash
-# Minimal working example
-python3 main.py --input "your task here"
-
-# With options
-python3 main.py --input "task" --model gpt-4 --output ~/Downloads/result.json
-
-# Batch mode
-python3 main.py --batch tasks.txt --parallel 4
-```
+| Command | What It Does |
+|---------|-------------|
+| `/market audit <url>` | Full marketing audit with 5 parallel agents |
+| `/market quick <url>` | 60-second marketing snapshot |
+| `/market copy <url>` | Generate optimized copy with before/after examples |
+| `/market emails <topic>` | Generate complete email sequences |
+| `/market social <topic>` | 30-day social media content calendar |
+| `/market ads <url>` | Ad creative and copy for all platforms |
+| `/market funnel <url>` | Sales funnel analysis and optimization |
+| `/market competitors <url>` | Competitive intelligence report |
+| `/market landing <url>` | Landing page CRO analysis |
+| `/market launch <product>` | Product launch playbook |
+| `/market proposal <client>` | Client proposal generator |
+| `/market report <url>` | Full marketing report (Markdown) |
+| `/market report-pdf <url>` | Professional marketing report (PDF) |
+| `/market seo <url>` | SEO content audit |
+| `/market brand <url>` | Brand voice analysis and guidelines |
 
 ---
 
 ## Architecture
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│                      Input Layer                         │
-│  CLI / API / Webhook / Scheduled trigger                 │
-└───────────────────────┬─────────────────────────────────┘
-                        │
-┌───────────────────────▼─────────────────────────────────┐
-│                   Orchestration Layer                    │
-│  Intent detection → Skill routing → Agent dispatch      │
-└───────────────────────┬─────────────────────────────────┘
-                        │
-┌───────────────────────▼─────────────────────────────────┐
-│                   Execution Layer                        │
-│  Parallel agents · Tool calls · External APIs           │
-└───────────────────────┬─────────────────────────────────┘
-                        │
-┌───────────────────────▼─────────────────────────────────┐
-│                    Output Layer                          │
-│  Structured results · Files · Notifications             │
-└─────────────────────────────────────────────────────────┘
+ai-marketing-claude/
+├── market/SKILL.md                     # Main orchestrator (routes all /market commands)
+│
+├── skills/                             # 14 sub-skills
+│   ├── market-audit/SKILL.md           # Full audit orchestration
+│   ├── market-copy/SKILL.md            # Copywriting analysis & generation
+│   ├── market-emails/SKILL.md          # Email sequence generation
+│   ├── market-social/SKILL.md          # Social media content calendar
+│   ├── market-ads/SKILL.md             # Ad creative & copy
+│   ├── market-funnel/SKILL.md          # Funnel analysis & optimization
+│   ├── market-competitors/SKILL.md     # Competitive intelligence
+│   ├── market-landing/SKILL.md         # Landing page CRO
+│   ├── market-launch/SKILL.md          # Launch playbook generation
+│   ├── market-proposal/SKILL.md        # Client proposal generator
+│   ├── market-report/SKILL.md          # Marketing report (Markdown)
+│   ├── market-report-pdf/SKILL.md      # Marketing report (PDF)
+│   ├── market-seo/SKILL.md             # SEO content audit
+│   └── market-brand/SKILL.md           # Brand voice analysis
+│
+├── agents/                             # 5 parallel subagents
+│   ├── market-content.md               # Content & messaging analysis
+│   ├── market-conversion.md            # CRO & funnel optimization
+│   ├── market-competitive.md           # Competitive positioning
+│   ├── market-technical.md             # Technical SEO & tracking
+│   └── market-strategy.md              # Brand, pricing & growth strategy
+│
+├── scripts/                            # Python utility scripts
+│   ├── analyze_page.py                 # Webpage marketing analysis
+│   ├── competitor_scanner.py           # Competitor website scanner
+│   ├── social_calendar.py              # Social content calendar generator
+│   └── generate_pdf_report.py          # PDF report generator
+│
+├── templates/                          # Marketing templates
+│   ├── email-welcome.md                # Welcome email sequence (5 emails)
+│   ├── email-nurture.md                # Lead nurture sequence (6 emails)
+│   ├── email-launch.md                 # Product launch sequence (8 emails)
+│   ├── proposal-template.md            # Client proposal template
+│   ├── content-calendar.md             # 30-day content calendar
+│   └── launch-checklist.md             # Launch checklist
+│
+├── install.sh                          # One-command installer
+├── uninstall.sh                        # Clean uninstaller
+├── requirements.txt                    # Python dependencies
+└── LICENSE                             # MIT License
 ```
 
 ---
 
-## Configuration
+## Scoring Methodology
 
-| Option | Default | Description |
-|--------|---------|-------------|
-| `MODEL` | `qwen2.5:7b` | LLM model to use |
-| `PARALLEL` | `4` | Max parallel workers |
-| `TIMEOUT` | `120` | Per-task timeout (seconds) |
-| `OUTPUT_DIR` | `~/Downloads` | Default output directory |
-| `LOG_LEVEL` | `INFO` | Logging verbosity |
-| `CACHE` | `true` | Enable response caching |
-| `MAX_RETRIES` | `3` | Auto-retry on failure |
-| `API_KEY` | — | Provider API key |
+The full marketing audit scores websites across 6 dimensions:
+
+| Category | Weight | What It Measures |
+|----------|--------|------------------|
+| Content & Messaging | 25% | Copy quality, value props, headlines, CTAs |
+| Conversion Optimization | 20% | Funnels, forms, social proof, friction, urgency |
+| SEO & Discoverability | 20% | On-page SEO, technical SEO, content structure |
+| Competitive Positioning | 15% | Differentiation, market awareness, alternatives |
+| Brand & Trust | 10% | Design quality, trust signals, authority |
+| Growth & Strategy | 10% | Pricing, acquisition channels, retention |
+
+**Overall Marketing Score** = Weighted average of all categories (0-100)
 
 ---
 
-## Examples
+## How It Works
 
-### Example 1 — Basic Usage
+1. **You type a command** — e.g., `/market audit https://example.com`
+2. **Claude reads the skill files** — they tell Claude exactly how to analyze the site
+3. **5 subagents launch in parallel** — each one analyzes a different dimension
+4. **Python scripts run** — automated page analysis, competitor scanning
+5. **Results are compiled** — into a scored, prioritized, actionable report
+6. **Output is saved** — as a Markdown file or professional PDF
 
-```python
-from main import run
+---
 
-result = run(
-    task="Analyze this dataset",
-    model="qwen2.5:7b",
-    output="~/Downloads/analysis.json"
-)
-print(result.summary)
-```
+## Use Cases
 
-### Example 2 — Batch Processing
+### For Agency Builders
+- Run `/market audit` on a prospect's website before a sales call
+- Generate `/market proposal` with specific findings and pricing
+- Deliver `/market report-pdf` as a professional client deliverable
 
-```python
-tasks = [
-    "Summarize document A",
-    "Extract entities from B",
-    "Compare A and B",
-]
-results = run_batch(tasks, parallel=3)
-for r in results:
-    print(r.title, r.status)
-```
+### For Solopreneurs
+- Use `/market copy` to optimize your own landing pages
+- Generate `/market emails` for your product launches
+- Build `/market social` calendars for consistent posting
 
-### Example 3 — Integration with Claude Code
+### For Content Creators
+- Research competitors with `/market competitors`
+- Plan launches with `/market launch`
+- Analyze your funnel with `/market funnel`
+
+---
+
+## Uninstall
 
 ```bash
-# Add to CLAUDE.md
-echo "Auto-activate: marketing, automation" >> ~/.claude/CLAUDE.md
-
-# Or load skill directly
-/load-skill ai-marketing-claude
+./uninstall.sh
 ```
 
----
-
-## Comparison
-
-| Feature | This Repo | Alternative A | Alternative B |
-|---------|-----------|--------------|--------------|
-| Speed | ⚡ Fast | 🐢 Slow | ⚡ Fast |
-| Cost | Free | Paid | Freemium |
-| Local | ✅ Yes | ❌ No | ✅ Yes |
-| Multi-agent | ✅ Yes | ❌ No | ❌ No |
-| Memory | ✅ Yes | ✅ Yes | ❌ No |
-| Streaming | ✅ Yes | ❌ No | ✅ Yes |
-| CLI | ✅ Yes | ✅ Yes | ❌ No |
-
----
-
-## Troubleshooting
-
-### Issue: Command not found
+Or manually:
 ```bash
-# Add to PATH
-export PATH="$PATH:$(pwd)/bin"
-source ~/.zshrc
-```
-
-### Issue: API key not set
-```bash
-echo 'export API_KEY="your-key-here"' >> ~/.zshrc
-source ~/.zshrc
-```
-
-### Issue: Model timeout
-```bash
-# Increase timeout
-export TIMEOUT=300
-# Or use faster model
-python3 main.py --model qwen2.5:7b
-```
-
-### Issue: Out of memory
-```bash
-# Reduce parallel workers
-python3 main.py --parallel 1
-# Or use smaller model
-python3 main.py --model llama3.2:3b
+rm -rf ~/.claude/skills/market*
+rm -f ~/.claude/agents/market-*.md
 ```
 
 ---
 
-## API Reference
+## Learn More
 
-### `run(task, model, output)`
-Execute a single task.
+Want to learn how to build a marketing agency powered by AI tools like this?
 
-| Param | Type | Required | Description |
-|-------|------|----------|-------------|
-| `task` | `str` | ✅ | Task description |
-| `model` | `str` | ❌ | LLM model (default: auto) |
-| `output` | `str` | ❌ | Output path |
-| `timeout` | `int` | ❌ | Timeout in seconds |
-
-Returns: `Result` object with `.summary`, `.data`, `.status`
-
-### `run_batch(tasks, parallel)`
-Execute multiple tasks in parallel.
-
-| Param | Type | Required | Description |
-|-------|------|----------|-------------|
-| `tasks` | `list[str]` | ✅ | List of task strings |
-| `parallel` | `int` | ❌ | Max concurrent (default: 4) |
-| `model` | `str` | ❌ | LLM model |
-
-Returns: `list[Result]`
-
----
-
-## Workflow Integration
-
-### n8n
-```json
-{
-  "nodes": [
-    {
-      "type": "n8n-nodes-base.executeCommand",
-      "parameters": {
-        "command": "python3 /path/to/main.py --input '{{ $json.input }}'"
-      }
-    }
-  ]
-}
-```
-
-### Make.com / Zapier
-Use HTTP Request module → POST to local webhook endpoint.
-
-### Claude Code Hook
-```json
-{
-  "hooks": {
-    "PostToolUse": [{"matcher": "marketing", "command": "python3 ~/repos/ai-marketing-claude/main.py"}]
-  }
-}
-```
-
----
-
-## Performance
-
-| Metric | Value |
-|--------|-------|
-| Avg latency (local) | < 2s |
-| Avg latency (cloud) | < 5s |
-| Throughput (batch) | 50 tasks/min |
-| Memory footprint | < 512MB |
-| Cold start | < 3s |
-| Cache hit rate | ~70% |
-
----
-
-## Roadmap
-
-- [x] Core execution engine
-- [x] CLI interface
-- [x] Batch processing
-- [x] Multi-agent support
-- [ ] Web UI dashboard
-- [ ] Real-time streaming API
-- [ ] Plugin marketplace
-- [ ] Mobile companion app
-- [ ] Enterprise SSO
-
----
-
-## Contributing
-
-```bash
-# Fork and clone
-gh repo fork hmzainjamil/ai-marketing-claude --clone
-cd ai-marketing-claude
-
-# Create feature branch
-git checkout -b feat/your-feature
-
-# Make changes, then test
-python3 -m pytest tests/
-
-# Submit PR
-gh pr create --title "feat: your feature" --body "Description"
-```
-
----
-
-## Changelog
-
-### v2.0.0
-- Multi-agent orchestration
-- Intent-based skill routing
-- 50% faster batch processing
-
-### v1.5.0
-- Added streaming output
-- Memory persistence
-- n8n integration
-
-### v1.0.0
-- Initial release
-- Core CLI
-- Basic agent execution
+**[Join the AI Workshop Community](https://www.skool.com/aiworkshop)** — Learn AI automations, vibe coding, and how to build AI-powered services for clients.
 
 ---
 
 ## License
 
-MIT — use freely, attribution appreciated.
-
----
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=hmzainjamil/ai-marketing-claude&type=Date)](https://star-history.com/#hmzainjamil/ai-marketing-claude&Date)
-
----
-
-*Built with Claude Code · Powered by open-source LLMs · Zero vendor lock-in*
-
----
-
-## Related Projects
-
-| Repo | Description | Stars |
-|------|-------------|-------|
-| [hmz-claude-code-best-practice](https://github.com/hmzainjamil/hmz-claude-code-best-practice) | Best practices for Claude Code | ⭐ |
-| [G0DM0D3](https://github.com/hmzainjamil/G0DM0D3) | AI agency OS | ⭐ |
-| [agent-skills](https://github.com/hmzainjamil/agent-skills) | Skill library | ⭐ |
-| [awesome-agentic-patterns](https://github.com/hmzainjamil/awesome-agentic-patterns) | Agentic design patterns | ⭐ |
-
----
-
-## Security
-
-- Never commit API keys to version control
-- Use `.env` files (added to `.gitignore`)
-- Rotate keys regularly
-- Use least-privilege API scopes
-- Audit tool permissions before granting
-
-```bash
-# Check for secrets before commit
-git diff --staged | grep -i "key\|secret\|token\|password"
-```
-
----
-
-## FAQ
-
-**Q: Does this work offline?**
-A: Yes — local models via Ollama require no internet.
-
-**Q: What models are supported?**
-A: Any Ollama model, OpenAI-compatible API, Groq, DeepSeek, Gemini.
-
-**Q: How do I add custom tools?**
-A: Drop a `.py` file in `tools/` directory — auto-discovered on startup.
-
-**Q: Can I use this in production?**
-A: Yes — add rate limiting and error handling for production workloads.
-
-**Q: Is there a cloud-hosted version?**
-A: Self-host only. No SaaS version.
-
-
----
-
-*Made by [hmzainjamil](https://github.com/hmzainjamil) — star if useful*
+MIT License — see [LICENSE](LICENSE) for details.
