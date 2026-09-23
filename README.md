@@ -1,5 +1,9 @@
 # ai-marketing-claude
 
+<!-- HMZ PORTFOLIO STANDARD -->
+> Portfolio status: active · Visibility: public · Source of truth: current repository source.
+<!-- END HMZ PORTFOLIO STANDARD -->
+
 > **A marketing team in 12 Claude skills** - Skill pack that replaces a CMO, content lead, ads buyer, SEO analyst, and brand strategist - Claude Code native, file-system simple, agency-grade output.
 
 <p align="center">
