@@ -1,157 +1,97 @@
-# ai-marketing-claude
+# AI Marketing Claude
 
-> **A marketing team in 12 Claude skills** - Skill pack that replaces a CMO, content lead, ads buyer, SEO analyst, and brand strategist - Claude Code native, file-system simple, agency-grade output.
+A Claude Code marketing skill pack with 15 workflow skills, five agent instruction files, four Python scripts, templates, and an installer. It provides prompt-guided analysis and content generation. It is not a hosted marketing service, ad platform integration, or measured campaign system.
 
-<p align="center"><a href="https://github.com/hmzainjamil/ai-marketing-claude">Repository</a> · <a href="https://github.com/hmzainjamil/ai-marketing-claude/commits/main">Commits</a> · <a href="https://github.com/hmzainjamil/ai-marketing-claude/issues">Issues</a></p>
-<p align="center"><img alt="Documentation" src="https://img.shields.io/badge/documentation-deep%20editorial-lightgrey"> <img alt="Lifecycle" src="https://img.shields.io/badge/lifecycle-active-success"></p>
+## Included
 
-<!-- HMZ DEEP README v1 -->
-
-## At a glance
-
-| Field | Current state |
+| Component | Purpose |
 |---|---|
-| Repository | ai-marketing-claude |
-| Visibility | Public |
-| Lifecycle | Active |
-| Evidence basis | Current repository documentation and source-visible material |
+| `market/SKILL.md` | Orchestrates the `/market` command set |
+| `skills/` | Audit, copy, email, social, ads, funnel, competitor, landing, launch, proposal, report, SEO and brand workflows |
+| `agents/` | Five role-specific analysis instructions |
+| `scripts/analyze_page.py` | Fetches and parses page HTML |
+| `scripts/competitor_scanner.py` | Fetches and parses competitor pages |
+| `scripts/social_calendar.py` | Produces a structured content calendar |
+| `scripts/generate_pdf_report.py` | Builds a report PDF with ReportLab |
+| `templates/` | Content calendar, email, launch and proposal starting points |
 
-## Why this exists
+The skill instructions may request web access and parallel subagents. Their availability depends on the configured Claude Code environment. Review the output and verify source evidence before using it for business decisions. Scores, legal observations, market claims and performance estimates are drafts, not validated results.
 
-**A marketing team in 12 Claude skills** - Skill pack that replaces a CMO, content lead, ads buyer, SEO analyst, and brand strategist - Claude Code native, file-system simple, agency-grade output.
+## Requirements
 
-The README documents the marketing workflow scope while separating skill definitions and automation behavior from claims about customer or campaign outcomes.
-
-## CONCEPTS
-
-| Concept | Location | Description |
-|---|---|---|
-| **Market master skill** | `market/SKILL.md` | Top-level marketing orchestrator - [Source](https://github.com/hmzainjamil/ai-marketing-claude/blob/main/market/SKILL.md) |
-| **Ads skill** | `skills/market-ads/SKILL.md` | Headline + creative generator - [Source](https://github.com/hmzainjamil/ai-marketing-claude/blob/main/skills/market-ads/SKILL.md) |
-| **Audit skill** | `skills/market-audit/SKILL.md` | 25-point teardown of any URL - [Source](https://github.com/hmzainjamil/ai-marketing-claude/blob/main/skills/market-audit/SKILL.md) |
-| **Brand skill** | `skills/market-brand/SKILL.md` | Voice / tone / palette builder - [Source](https://github.com/hmzainjamil/ai-marketing-claude/blob/main/skills/market-brand/SKILL.md) |
-| **Page analyzer** | `scripts/analyze_page.py` | Headless audit of a URL - [Source](https://github.com/hmzainjamil/ai-marketing-claude/blob/main/scripts/analyze_page.py) |
-| **Competitor scanner** | `scripts/competitor_scanner.py` | Diffs 5 competitors on positioning - [Source](https://github.com/hmzainjamil/ai-marketing-claude/blob/main/scripts/competitor_scanner.py) |
-| **Social calendar** | `scripts/social_calendar.py` | 30-day content plan generator - [Source](https://github.com/hmzainjamil/ai-marketing-claude/blob/main/scripts/social_calendar.py) |
-| **PDF report** | `scripts/generate_pdf_report.py` | ReportLab branded audit PDF - [Source](https://github.com/hmzainjamil/ai-marketing-claude/blob/main/scripts/generate_pdf_report.py) |
-| **Strategy agent** | `agents/market-strategy.md` | GTM + positioning agent - [Source](https://github.com/hmzainjamil/ai-marketing-claude/blob/main/agents/market-strategy.md) |
-| **Conversion agent** | `agents/market-conversion.md` | CRO + funnel agent - [Source](https://github.com/hmzainjamil/ai-marketing-claude/blob/main/agents/market-conversion.md) |
-
-## HOW IT WORKS
-
-```
-+---------------------------------------------------------+
-|                       INPUT                             |
-|   12 - ads, audit, brand, competitors, copy, emails,|
-+--------------------------+------------------------------+
-                           v
-+---------------------------------------------------------+
-|                  ORIENT / PARSE                         |
-|   - Validate inputs                                     |
-|   - Load skill / agent / tool definitions               |
-|   - Resolve config + secrets from .env                  |
-+--------------------------+------------------------------+
-                           v
-+---------------------------------------------------------+
-|                  PLAN (Claude Sonnet)                   |
-|   - Decompose goal into ordered subtasks                |
-|   - Pick model per task (Sonnet / Haiku / Tier-0)       |
-+--------------------------+------------------------------+
-                           v
-+---------------------------------------------------------+
-|                  EXECUTE (parallel)                     |
-|   - Spawn sub-agents / call tools                       |
-|   - Stream tokens, persist artifacts                    |
-+--------------------------+------------------------------+
-                           v
-+---------------------------------------------------------+
-|                  VERIFY                                 |
-|   - Lint / typecheck / visual diff / QA agent           |
-|   - On failure -> re-prompt with error context          |
-+--------------------------+------------------------------+
-                           v
-+---------------------------------------------------------+
-|                  SHIP                                   |
-|   - Write to disk . commit . PR . upload                |
-+---------------------------------------------------------+
-```
+- Claude Code for the Markdown skills and agent instructions.
+- Python 3 for the scripts.
+- ReportLab, declared as an optional dependency in `requirements.txt`, for PDF generation.
+- Network access for scripts that fetch website pages.
 
 ## Install
+
+Review `install.sh` before running. It copies the orchestrator, skill instructions, agent files and scripts to `$HOME/.claude/skills` and `$HOME/.claude/agents`. Matching files can be overwritten. The installer also checks related suites and prints commands; review those URLs before use.
 
 ```bash
 git clone https://github.com/hmzainjamil/ai-marketing-claude.git
 cd ai-marketing-claude
-
-# Per-repo install (try in order):
-bash install.sh 2>/dev/null || \
-npm install 2>/dev/null || \
-bun install 2>/dev/null || \
-pip install -r requirements.txt 2>/dev/null || true
-```
-
-Environment:
-
-```bash
-cp .env.example .env  # if present
-# fill ANTHROPIC_API_KEY at minimum
+bash install.sh
 ```
 
 ## Usage
 
-```bash
-# Claude Code skill packs:
-/skill-name "your goal"
+Start a Claude Code session after installation. Commands defined in `market/SKILL.md` include:
 
-# CLI / scripts:
-python scripts/<script>.py --input ./input --output ./output
-
-# TypeScript projects:
-bun run dev    # or npm run dev
+```text
+/market audit <url>
+/market quick <url>
+/market copy <url>
+/market social <topic-or-url>
+/market competitors <url>
+/market report-pdf <url>
 ```
 
-### Configuration knobs
+Each skill documents its own inputs and workflow. Do not provide confidential client data to AI providers or external tools unless approved for that use.
 
-| Key | Default | Description |
-|---|---|---|
-| `ANTHROPIC_API_KEY` | - (required) | Claude API key |
-| `MODEL` | `claude-sonnet-4-7` | Default LLM |
-| `MODEL_FALLBACK` | `claude-haiku-4` | Cheaper fallback |
-| `MAX_TOKENS` | `8192` | Per-call ceiling |
-| `TEMPERATURE` | `0.2` | Determinism dial |
-| `LOG_LEVEL` | `info` | debug / info / warn / error |
-| `OUT_DIR` | `./out` | Where artifacts land |
-| `CACHE_DIR` | `.cache` | Prompt cache root |
-| `PARALLELISM` | `4` | Sub-agent concurrency |
-| `RETRY_MAX` | `3` | Per-call retry budget |
-| `TIMEOUT_S` | `120` | Per-call timeout |
-| `DRY_RUN` | `false` | Plan-only, no side effects |
+Generate a PDF from JSON data:
 
-### Case 3 - DTC brand, ad creative testing
+```bash
+python3 scripts/generate_pdf_report.py input.json output.pdf
+```
 
-- Before: $2K/month UGC creator retainer, 4 ads/month.
-- After: 30+ ad variants/week via Arcads + Claude, A/B-tested.
-- Result: 3x creative velocity, 41% lower CAC after 6 weeks.
+The script requires ReportLab and writes to the selected output path. The PDF content comes from the supplied JSON; inspect it before sharing.
 
-## Security
+## Uninstall
 
-- Never commit API keys. `.env` is in `.gitignore` by default.
-- Use [git-secret](https://git-secret.io/) or 1Password CLI for team secret sharing.
-- Review the QA / safety layer for any tool that writes to disk or runs shells (see `mac_safety.py` style guards).
-- Vulnerability reports: open a private GitHub Security Advisory.
+Review `uninstall.sh` first. It recursively removes named `market*` skill directories and five matching agent files under the Claude home directories. Back up local edits and inspect those paths before running:
+
+```bash
+bash uninstall.sh
+```
 
 ## Limitations
 
-- External platform behavior and current model capabilities can change.
-- Marketing outcomes depend on strategy, execution, audience, offer, and measurement.
-- Quantitative performance claims require time-bounded evidence.
+- Skills are Markdown instructions; external capabilities depend on host tools and permissions.
+- The page-fetching scripts make network requests to supplied URLs. Use only authorized targets and review output.
+- No ad account connection or campaign execution interface is present in this repository.
+- Marketing scores and recommendations are not independently validated.
+- Example performance claims in prior README copy were not accompanied by source data and are omitted.
+- No test suite or supported-platform matrix is declared.
 
-## Related
+## Repository map
 
-- [Claude Code](https://docs.claude.com/en/docs/claude-code) - official docs
-- [Anthropic Console](https://console.anthropic.com) - API keys + billing
-- [Crawlee](https://crawlee.dev) - web scraping framework
-- [hmz-claude-code-best-practice](https://github.com/hmzainjamil/hmz-claude-code-best-practice) - sister repo
+- [Main orchestrator](market/SKILL.md)
+- [Workflow skills](skills/)
+- [Agent instructions](agents/)
+- [Python scripts](scripts/)
+- [Templates](templates/)
+- [Security notes](SECURITY.md)
+- [License](LICENSE)
 
-## Maintainer
+## Contributing
 
-[hmzainjamil](https://github.com/hmzainjamil)
+Open an issue with the affected file, expected behavior, and a safe reproduction using synthetic or public data. Do not include credentials, private client data, or scraped personal information.
+
+## Security and privacy
+
+See [SECURITY.md](SECURITY.md) for installer, network access, and data handling guidance.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
